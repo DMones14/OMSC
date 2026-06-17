@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCEANWIDE - Maritime Solutions Partner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anime.js/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/oceanwidelogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- SPLASH SCREEN -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-overlay"></div>
+        <div class="splash-waves">
+            <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <img src="images/oceanwidelogo.png" alt="Oceanwide Logo" class="splash-logo">
+            <!--<div class="splash-text">Immersive Maritime Experience</div>-->
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0047AB;stop-opacity:1">
+                            <animate attributeName="stop-color" values="#0047AB;#0066CC;#0047AB" dur="4s" repeatCount="indefinite"/>
+                        </stop>
+                        <stop offset="100%" style="stop-color:#0066CC;stop-opacity:1">
+                            <animate attributeName="stop-color" values="#0066CC;#0047AB;#0066CC" dur="4s" repeatCount="indefinite"/>
+                        </stop>
+                    </linearGradient>
+                    <filter id="logoGlow">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Main OCEANWIDE text -->
+                <text x="400" y="100" font-family="Arial, sans-serif" font-size="90" font-weight="900" fill="url(#logoGradient)" text-anchor="middle" letter-spacing="8" filter="url(#logoGlow)" class="logo-main-text">OCEANWIDE</text>
+                
+                <!-- Wave element in E -->
+                <g class="wave-element" transform="translate(320, 70)">
+                    <path d="M 0 10 Q 5 5 10 10 T 20 10" stroke="#00A8E8" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 0 20 Q 5 15 10 20 T 20 20" stroke="#00D4FF" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 0 30 Q 5 25 10 30 T 20 30" stroke="#00A8E8" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </g>
+                
+                <!-- Tagline -->
+                <text x="400" y="145" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#0047AB" text-anchor="middle" letter-spacing="3" class="logo-tagline">Maritime Services Corp.</text>
+            </svg>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#training">Training</a></li>
+            <li><a href="#certs">Accreditations & Certifications</a></li>
+            <li><a href="#foundation">Our Mission, Vision</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#survey">Survey & Certification</a></li>
+            <li><a href="#training">Training</a></li>
+            <li><a href="#certs">Accreditations & Certifications</a></li>
+            <li><a href="#foundation">Our Foundation</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-particle-field" id="heroParticleField" aria-hidden="true"></div>
+        <!-- 3D Background Carousel -->
+        <div class="hero-3d-bg">
+            <div class="carousel-container">
+                <div class="carousel-item carousel-item-1">
+                    <div class="carousel-content">
+                       <img src="images/oceanwidelogo.png" class="company-logo">
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-2">
+                    <div class="carousel-content">
+                       <img src="images/oceanwidelogo.png" class="company-logo">
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-3">
+                    <div class="carousel-content">
+                        <img src="images/oceanwidelogo.png" class="company-logo">
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-4">
+                    <div class="carousel-content">
+                        <img src="images/oceanwidelogo.png" class="company-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Your Maritime <span>Solutions Partner</span></h1>
+            <p>Leading the maritime industry with excellence in training, certification, and consultancy services since 2012.</p>
+            <a href="#services" class="cta-button">Explore Services</a>
+        </div>
+        <div class="hero-canvas">
+        </div>
+    </section>
+
+    <!-- TABLE OF CONTENTS SECTION -->
+    <section class="table-of-contents" id="contents">
+        <div class="toc-background"></div>
+        <div class="toc-container">
+            <h2 class="toc-title">Table of <span>Contents</span></h2>
+            
+            <div class="toc-list">
+                <div class="toc-item" data-link="contents">
+                    <span class="toc-number">01</span>
+                    <span class="toc-text">Table of Contents</span>
+                </div>
+                <div class="toc-item" data-link="home">
+                    <span class="toc-number">02</span>
+                    <span class="toc-text">Leading the Way</span>
+                </div>
+                <div class="toc-item" data-link="about">
+                    <span class="toc-number">03</span>
+                    <span class="toc-text">About Us</span>
+                </div>
+                <div class="toc-item" data-link="services">
+                    <span class="toc-number">04</span>
+                    <span class="toc-text">Services and Expertise</span>
+                </div>
+                <div class="toc-item" data-link="survey">
+                    <span class="toc-number">06</span>
+                    <span class="toc-text">Survey and Certification</span>
+                </div>
+                <div class="toc-item" data-link="training">
+                    <span class="toc-number">07</span>
+                    <span class="toc-text">Training and Education</span>
+                </div>
+                <div class="toc-item" data-link="training">
+                    <span class="toc-number">08</span>
+                    <span class="toc-text">Oceanwide Core Training Courses</span>
+                </div>
+                <div class="toc-item" data-link="certs">
+                    <span class="toc-number">09</span>
+                    <span class="toc-text">Accreditation and Certifications</span>
+                </div>
+                <div class="toc-item" data-link="contact">
+                    <span class="toc-number">11</span>
+                    <span class="toc-text">Talk to Us</span>
+                </div>
+                <div class="toc-item" data-link="contact">
+                    <span class="toc-number">12</span>
+                    <span class="toc-text">Branches</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADING THE WAY SECTION -->
+    <section class="leading-the-way" id="leading">
+        <div class="ltw-header">
+            <div class="ltw-compass">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#00A8E8" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#00D4FF" stroke-width="1"/>
+                    <path d="M50 15 L55 40 L50 45 L45 40 Z" fill="#00D4FF"/>
+                    <path d="M85 50 L60 55 L55 50 L60 45 Z" fill="#00A8E8"/>
+                    <path d="M50 85 L45 60 L50 55 L55 60 Z" fill="#0047AB"/>
+                    <path d="M15 50 L40 45 L45 50 L40 55 Z" fill="#00A8E8"/>
+                    <text x="50" y="25" text-anchor="middle" fill="#00D4FF" font-size="8" font-weight="bold">N</text>
+                    <text x="75" y="53" text-anchor="middle" fill="#00D4FF" font-size="8" font-weight="bold">E</text>
+                    <text x="50" y="80" text-anchor="middle" fill="#00D4FF" font-size="8" font-weight="bold">S</text>
+                    <text x="25" y="53" text-anchor="middle" fill="#00D4FF" font-size="8" font-weight="bold">W</text>
+                </svg>
+            </div>
+            <h2 class="ltw-title">Leading<br>the Way</h2>
+        </div>
+
+        <div class="ltw-divider"></div>
+
+        <div class="ltw-content">
+            <div class="ltw-main-message">
+                <p>With our commitment in providing excellent marine
+                    services to our stakeholders by conforming to maritime
+                    statutory requirements and international standards,
+                    OCEANWIDE leads the way as a reliable partner of the
+                    maritime industry.</strong></p>
+            </div>
+
+            <div class="ltw-description">
+                <p>The company is manned by enthusiastic young professionals with
+extensive experience, who served in varying capacities in the
+maritime industry, both locally and abroad, particularly in ship
+management, crew management, maritime training, maritime law,
+survey, audits, inspections and consultancy services. In our quest to
+pursue the institution’s commitment to be a strong, credible and
+reliable partner of the government in providing quality maritime
+services, Oceanwide have certified its services with the international
+standards of ISO 9001. Our accreditation as Recognized Security
+Organization (RSO) and MARSEC Training School of the Office for
+Transportation Security (OTS), MARPOL Surveying Organization of
+the Philippine Coast Guard (PCG), Maritime Training Institution (MTI)
+for both STCW and domestic training courses and Under Water
+Surveyor of Maritime Industry Authority (MARINA) is a manifestation
+of Oceanwide’s continued commitment to Quality Service and in
+offering one stop solution to its stakeholders.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Us OCEANWIDE</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Established Since 2012</h2>
+                <p>Headquartered in Cebu, Philippines, our institution has evolved into a one-stop maritime solutions partner delivering effective and efficient
+                    services for compliance with statutory and customized maritime regulatory requirements. In 2017 we invested huge amount of
+                    resources, time and effort to expand the institution’s operation by opening a branch in Manila and Zamboanga respectively.</p>
+                <p>OCEANWIDE has been authorized by the different Philippine Administration Agencies who are tasked with the implementation of the different
+                    IMO conventions and domestic laws, to act on their behalf in conducting statutory surveys as well as audits and issuing the necessary statutory
+                    certificates. It is also an STCW-accredited maritime institution for the conduct of maritime training.</p>
+                <p>We carry out broad range of maritime services in the entire Philippines and the Asia Pacific. We cater to the needs of ship owners and
+                    other stakeholders of the maritime industry. Using technology and a team of highly qualified naval architects, marine engineers, master
+                    mariners, other engineers, instructors, assessors, supervisors and technical personnel, we give you tailor made services and
+                    solutions to cater your organization’s needs. Guided by company code of ethics, we provide uncompromising commitment to quality
+                    maritime services and outcomes based training geared towards high impact learning. Offering maritime solutions servicestogether with its affiliates
+and sister companies in
+the Oceanwide Group.
+We commit at designing
+and proper conduct of
+up-to-date outcomesbased
+training programs
+that meet not only the
+minimum standards set
+by the Standards of
+Training, Certification and
+Watchkeeping for
+Seafarers (STCW
+Convention) but most
+especially the standards
+set by the world maritime
+industry and its
+stakeholders.</p>
+<p>
+    We treat our clients as
+important partners and
+provide them with
+incomparable schedule,
+flexibility and
+personalized services
+without compromising
+confidentiality and
+integrity.
+</p>
+                <!--<div class="features-list">
+                    <div class="feature-item">
+                        <h4>🎓 Maritime Training</h4>
+                        <p>STCW and domestic training courses</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📋 Survey & Audit</h4>
+                        <p>MARPOL and MARSEC services</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🛡️ Security</h4>
+                        <p>ISPS Code compliance</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🏗️ Consultancy</h4>
+                        <p>Naval architecture expertise</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="glass" style="padding: 2rem; border-radius: 20px; height: fit-content;">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">Our Accreditations</h3>
+                    <ul style="list-style: none; color: var(--text-muted);">
+                        <li style="margin-bottom: 0.8rem;">✓ ISO 9001:2015 Certified</li>
+                        <li style="margin-bottom: 0.8rem;">✓ Recognized Organization (RO)</li>
+                        <li style="margin-bottom: 0.8rem;">✓ MARPOL Survey Organization</li>
+                        <li style="margin-bottom: 0.8rem;">✓ Maritime Training Institution</li>
+                        <li style="margin-bottom: 0.8rem;">✓ Underwater Surveyor (MARINA)</li>
+                        <li>✓ MARSEC Training School</li>
+                    </ul>
+                </div>
+            </div>-->
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <h2 class="section-title">Services & Expertise</h2>
+        
+        <!-- Services Grid with Two Columns -->
+        <div class="services-detailed-immersive">
+            <div class="particle-field" id="detailParticleField" aria-hidden="true"></div>
+            <div class="services-detailed">
+                <!-- Left Column: Administration's Accredited Services -->
+                <div class="services-column">
+                    <h3 class="services-column-title">
+                        <span class="services-column-icon">🏢</span>
+                        Administration's Accredited Services
+                    </h3>
+                
+                <div class="service-detail-item">
+                    <div class="service-detail-icon"><img src="images/OTS.png" alt="OTS Logo"></div>
+                    <div class="service-detail-content">
+                        <h4>Maritime Security (MARSEC) Training School</h4>
+                        <p>As an accredited Maritime Security (MARSEC) Training School of the Philippine Administration, the Office for Transportation Security (OTS) against the STCW Convention and the ISPS Code, for the conduct of different MARSEC training courses required for seafarers and port facility personnel.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon"><img src="images/OTS.png" alt="OTS Logo"></div>
+                    <div class="service-detail-content">
+                        <h4>Recognized/Registered Security Organization (RSO/ReSo)</h4>
+                        <p>As a Recognized/Registered Security Organization (RSO/ReSO) of the Philippine Administration for ISPS Code, the Office for Transportation Security (OTS), we carry out audit of ship and ports for the issuance of National Ship Security Certificate (NSSC) and Statement of Compliance of a Port Facility (SoCPF), respectively.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon"><img src="images/PCG.png" alt="PCG Logo"></div>
+                    <div class="service-detail-content">
+                        <h4>Marpol Survey Organization (MSO)</h4>
+                        <p>As a Marpol Survey Organization (MSO) of the Philippine Administration for MARPOL Convention, the Philippine Coast Guard (PCG), we carry out
+                        survey of ships for the issuance of Oil Pollution Prevention Certificate (OPPC) and Sewage Pollution Prevention Certificate (SPPC). </p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon"><img src="images/MARINA.png" alt="MARINA Logo"></div>
+                    <div class="service-detail-content">
+                        <h4>Accredited Underwater Surveyor</h4>
+                        <p>As an accredited Underwater Surveyor of the Philippine Administration, the Maritime Industry Authority (MARINA), we carry out underwater inspection/survey of the ship’s integral parts which are below waterline while the ship is in afloat position for the issuance of a Certificate of Inspection (CI) after complying with the PMMRR ’97 and other safety rules issued subsequently by MARINA as well as Interim Certificate of Inspection (ICI) to extend the validity of Certificate of Inspection (CI) after a favorable result of the underwater survey</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon"><img src="images/MARINA.png" alt="MARINA Logo"></div>
+                    <div class="service-detail-content">
+                        <h4>Maritime Training Institution (MTI)</h4>
+                        <p>As an accredited Maritime Training Institution (MTI) of the Philippine Administration, the Maritime Industry Authority (MARINA) against the Standards of Training, Certificate and Watchkeeping (STCW), for the conduct of different training courses required for Philippine seafarers to become internationally competent professionals.</p>
+                    </div>
+                </div>
+                <!-- Added note from screenshot: tailor-made services summary -->
+                <div class="services-note">
+                    <p>OCEANWIDE Group also provide tailor-made services to cater to the customers' specific requirements, in the fields of Naval Architecture, Marine Engineering, Management Systems, Risk and Reliability and Maritime Law.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Other Expert and Specialized Services -->
+            <div class="services-column">
+                <h3 class="services-column-title">
+                    <span class="services-column-icon">⚙️</span>
+                    Other Expert and Specialized Services
+                </h3>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">💼</div>
+                    <div class="service-detail-content">
+                        <h4>Consultancy Services</h4>
+                        <p>Consultancy to the maritime industry, i.e. owners, operators, shipbuilders, repairers, port authorities etc. in the fields of Naval Architecture, Marine Engineering, Management Systems, Risk and Reliability, Maritime Law, Business Process Re-engineering and other related fields.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">📋</div>
+                    <div class="service-detail-content">
+                        <h4>Documentation Services</h4>
+                        <p>Preparation of:</p>  
+                        <ul>
+                            <li>SMS - (Safety Management System) Manual</li>
+                            <li>CSMP - (Cyber Security Management Plan)</li>
+                            <li>(MSMP) - (Mooring System Management Plan)</li>
+                            <li>(CSP) - (Company Security Plan)</li>
+                            <li>(CSM) - (Cargo Securing Manual)</li>
+                            <li>(SSP) - (Ship Security Plan)</li>
+                            <li>(PFSA) - (Port Facility Security Assessment)</li>
+                            <li>(PFSP) - (Port Facility Security Plan)</li>
+                            <li>(SOPEP) - (Shipboard Oil Pollution Emergency Plan)</li>
+                            <li>(OSCP) - (Oil Spill Contingency Plan)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">👨‍🏫</div>
+                    <div class="service-detail-content">
+                        <h4>Professional Development Training</h4>
+                        <p>Professional development training services for the maritime industry including seafarer training, training for maritime instructors, assessors and supervisors as well as other shipping industry professionals, marine surveyors and auditors.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">💻</div>
+                    <div class="service-detail-content">
+                        <h4>Computer Based Training (CBT)</h4>
+                        <p>Offers Computer Based Training (CBT), Blended Learning Program (BLP) or a Distance Learning Program (DLP) through the institution's well-grounded Learning Management System (LMS) using relevant and latest educational tools and techniques.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">🤿</div>
+                    <div class="service-detail-content">
+                        <h4>Specialist Diving Services</h4>
+                        <p>Other specialist diving jobs such as underwater investigation, hull cleaning and propeller polishing.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">🧭</div>
+                    <div class="service-detail-content">
+                        <h4>Compass Adjuster</h4>
+                        <p>Compass Adjuster through the MARINA accreditation of our sister company, Oceanskipper.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">🔥</div>
+                    <div class="service-detail-content">
+                        <h4>Firefighting Equipment (FFE)</h4>
+                        <p>Supply and Servicing for Firefighting Equipment (FFE) through the MARINA accreditation of our sister company, Oceanskipper.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">⛑️</div>
+                    <div class="service-detail-content">
+                        <h4>Lifesaving Appliances (LSA)</h4>
+                        <p>Supply and Servicing for Lifesaving Appliances (LSA) through the MARINA accreditation of our sister company, Oceanskipper.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">📡</div>
+                    <div class="service-detail-content">
+                        <h4>Navigation and Communication Equipment</h4>
+                        <p>Supply and Servicing for Navigation and Communication Equipment (NavCom) through the MARINA accreditation of our sister company, Oceanskipper.</p>
+                    </div>
+                </div>
+
+                <div class="service-detail-item">
+                    <div class="service-detail-icon">🔍</div>
+                    <div class="service-detail-content">
+                        <h4>Survey, Vetting & Investigation</h4>
+                        <p>Survey, vetting and investigation services on behalf of shipowners, shipmanagers, charterers, P&I, H&M and the marine insurance industry through our sister company Oceanwide Surveys Inc. (OSI).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SURVEY & CERTIFICATION SECTION - 3D IMMERSIVE -->
+    <section class="survey-certification" id="survey">
+        <div class="survey-container">
+            <!-- Left Side: 3D Visual Element -->
+            <div class="survey-visual">
+                <div class="survey-card-3d">
+                    <div class="survey-image-wrapper">
+                        <div class="survey-image">
+                        <img src="images/SurveyCert.png" class="survey-main-image">
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Content -->
+            <div class="survey-content">
+                <h2 class="survey-title">Survey & <span>Certification</span></h2>
+                
+                <div class="survey-description">
+                    <p>As a <strong>Recognized Organization of the Administration</strong>, OCEANWIDE is authorized to carry out the following services on behalf of the administration.</p>
+                </div>
+
+                <!-- Service Items -->
+                <div class="survey-services">
+                    <div class="survey-service-item">
+                        <div class="service-number">01</div>
+                        <div class="service-info">
+                            <h4>MARPOL Survey</h4>
+                            <p>For the issuance and endorsement of:</p>
+                            <ul class="service-list">
+                                <li>Oil Pollution Prevention Certificate (OPPC)</li>
+                                <li>Sewage Pollution Prevention Certificate (SPPC)</li>
+                            </ul>
+                            <p class="service-detail">for Philippine Registered Ships.</p>
+                        </div>
+                    </div>
+
+                    <div class="survey-service-item">
+                        <div class="service-number">02</div>
+                        <div class="service-info">
+                            <h4>MARSEC Audit</h4>
+                            <p>For the issuance and endorsement of:</p>
+                            <ul class="service-list">
+                                <li>National Ship Security Certificate (NSSC)</li>
+                                <li>Statement of Compliance of a Port Facility (SoCPF)</li>
+                            </ul>
+                            <p class="service-detail">for Philippine Registered Ships and Ports, respectively.</p>
+                        </div>
+                    </div>
+
+                    <div class="survey-service-item">
+                        <div class="service-number">03</div>
+                        <div class="service-info">
+                            <h4>Underwater Survey</h4>
+                            <p>Of Philippine Registered Ships for the issuance of a Certificate of Inspection or to extend the validity of Certificate of Inspection through underwater survey of the ship's integral parts which are below waterline.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINING SECTION -->
+    <section class="training" id="training">
+        <h2 class="section-title">OCEANWIDE SERVICES OFFERED</h2>
+         
+            <div class="training-category">
+                <!-- Professional Development -->
+                <h3 class="training-category-title">
+                    <span class="category-icon">📚</span>
+                    Professional Development Courses
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-name">MARPOL Surveyor Course</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-name">MARSEC Auditor Course</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-name">Internal Auditor's Course (ISM/ISPS/MLC/ISO)</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-name">DPA Course - Designated Person Ashore</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-name">IMO 6.09 - Ship Energy Efficiency</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-name">IMO 3.12 - Maritime Cyber Risk Management</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-name">IMO 6.10 - Ship Energy Management Planning</span>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+             <!-- OTS MARSEC Courses -->
+            <div class="training-category">
+                <h3 class="training-category-title">
+                    <!--<span class="category-icon">🔒</span>-->
+                    <div class="service-detail-icon"><img src="images/OTS.png" alt="OTS Logo"></div>
+                    OTS MARSEC Accredited Training Courses
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">MARSEC</span>
+                        <span class="course-name">PFSO - IMO Model Course 3.21</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MARSEC</span>
+                        <span class="course-name">CSO - IMO Model Course 3.20</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MARSEC</span>
+                        <span class="course-name">MSAT with DSD - IMO Model Course 3.24</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MARSEC</span>
+                        <span class="course-name">MSAT without DSD - IMO Model Course 3.25</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        
+        <div class="training-content">
+            <!-- STCW Accredited Courses -->
+            <div class="training-category">
+                <h3 class="training-category-title">
+                    <!--<span class="category-icon">🌍</span>-->
+                    <div class="service-detail-icon"><img src="images/MARINA.png" alt="MARINA Logo"></div>
+                    STCW Accredited Training Courses (International)
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">SSO - Ship Security Officer</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">SDSD - Ship Security Awareness Training and Seafarers with Designated Security Duties</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">MEFA - Medical First Aid  </span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">RFPEW - Ratings Forming Part of Engineering Watch</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">RFPNW - Ratings Forming Part of Navigational Watch</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">Safety Training for Personnel Providing Direct Service to Passengers in Passenger Spaces</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">Passenger Ship Crowd Management Training</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">STCW</span>
+                        <span class="course-name">Passenger Ship Crisis Management and Human Behavior Training</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Online Customized / In-House Courses -->
+            <div class="training-category">
+                <h3 class="training-category-title">
+                    <!--<span class="category-icon">💻</span>-->
+                    <div class="service-detail-icon"><img src="images/MARINA.png" alt="MARINA Logo"></div>
+                    Online Customized / In-House Training Courses
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">ISM Code Familiarization</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">BRM - Bridge Resource Management</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">ISPS - International Ship and Port Security</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">PADAMS - Prevention of Alcohol and Drug Abuse in the Maritime Sector</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">HAZMAT - Hazardous Materials</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">Anti-Piracy</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">Cyber Security Awareness</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">OWS Familiarization</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">STP Familiarization</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">ORB Familiarization</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">SOPEP - Shipboard Oil Pollution Emergency Plan</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">Cargo Handling</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">HAZMAT with CFR</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">Maritime English</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">MARPOL Consolidated</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">Steering Course</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">CUSTOM</span>
+                        <span class="course-name">IMDG Code</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MDS Accredited Courses -->
+            <div class="training-category">
+                <h3 class="training-category-title">
+                    <!--<span class="category-icon">🇵🇭</span>-->
+                    <div class="service-detail-icon"><img src="images/MARINA.png" alt="MARINA Logo"></div>
+                    MDS Accredited Training Courses (Domestic)
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">MDS</span>
+                        <span class="course-name">CCM - Crowd and Crisis Management for Personnel Serving Onboard Domestic RO-RO/Passenger Cargo/Passenger Ships</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MDS</span>
+                        <span class="course-name">DWK - Deck Watchkeeping in the Domestic Trade</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MDS</span>
+                        <span class="course-name">EWK - Engine Watchkeeping in the Domestic Trade</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MDS</span>
+                        <span class="course-name">SNCR - Safe Navigation and Collision Regulation</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MDS</span>
+                        <span class="course-name">Ship Handling & Safe Navigation 1, 2, 3</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">MDS</span>
+                        <span class="course-name">Engine Operation & Maintenance 1, 2, 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marpol Survey -->
+            <div class="training-category">
+                <h3 class="training-category-title">
+                    <!--<span class="category-icon">🌊</span>-->
+                       <div class="service-detail-icon"><img src="images/PCG.png" alt="PCG Logo"></div>
+                    MARPOL Survey Services
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">SURVEY</span>
+                        <span class="course-name">Oil Pollution Prevention Certificate (OPPC)</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">SURVEY</span>
+                        <span class="course-name">Sewage Pollution Prevention Certificate (SPPC)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Underwater Survey -->
+            <div class="training-category">
+                <h3 class="training-category-title">
+                    <!--<span class="category-icon">🤿</span>-->
+                    <div class="service-detail-icon"><img src="images/MARINA.png" alt="MARINA Logo"></div>
+                    Underwater Survey Services
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">UNDER</span>
+                        <span class="course-name">UWILD - Underwater Inspection in Lieu of Dry-Docking</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">UNDER</span>
+                        <span class="course-name">Underwater Hull Survey</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">UNDER</span>
+                        <span class="course-name">Seabed Inspection / Coral Reef Assessment</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">UNDER</span>
+                        <span class="course-name">Port Breasting Dolphin Survey</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ISPS Audit & Consultancy -->
+            <div class="training-category">
+                <h3 class="training-category-title">
+                    <!--<span class="category-icon">🛡️</span>-->
+                     <div class="service-detail-icon"><img src="images/OTS.png" alt="OTS Logo"></div>
+                    ISPS Audit & Consultancy Services
+                </h3>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <span class="course-badge">ISPS</span>
+                        <span class="course-name">NSSC - National Ship Security Certificate</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">ISPS</span>
+                        <span class="course-name">SoCPF - Statement of Compliance of a Port Facility</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">ISPS</span>
+                        <span class="course-name">Ship Security Plan Development</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">ISPS</span>
+                        <span class="course-name">Ship Security Assessment</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">ISPS</span>
+                        <span class="course-name">Port Facility Security Plan</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-badge">ISPS</span>
+                        <span class="course-name">Port Facility Security Assessment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="certifications" id="certs">
+        <h2 class="section-title">Accreditations & Certifications</h2>
+        <div class="cert-carousel">
+            <div class="cert-item">
+                <div class="cert-icon">🏅</div>
+                <h4>ISO 9001:2015</h4>
+                <p>Quality Management System</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">⚓</div>
+                <h4>Recognized Organization</h4>
+                <p>MARPOL & MARSEC Authority</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">📜</div>
+                <h4>Maritime Training Institution</h4>
+                <p>STCW & Domestic Training</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🔒</div>
+                <h4>Security Organization</h4>
+                <p>ISPS Code Compliance</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🌊</div>
+                <h4>Underwater Surveyor</h4>
+                <p>MARINA Accreditation</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">✓</div>
+                <h4>Sister Companies</h4>
+                <p>Oceanskipper & Oceanwide Surveys</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon"><img src="images/BV.png" alt="B Veritas Logo"></div>
+                <h4>Bureau Veritas</h4>
+                <p>Bureau Veritas Accreditation</p>
+            </div>
+        </div>
+
+        <div class="cert-gallery">
+            <h3 class="gallery-title">Certification Gallery</h3>
+            <div class="gallery-loop">
+                <div class="gallery-track">
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Bureau Veritas" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Medical First Aid</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/BV.png" alt="Oceanwide Maritime Services" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Rating Forming Part of a Watch in a Manned Engine-room</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/korea.png" alt="Oceanskipper" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Ratings forming Part of a Navigation Watch</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/Oceanskipper.png" alt="Oceanwide Surveys" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Ship Security Awareness Training and Seafarer w/ Designated Security Duties</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/Oceanwide Group.png" alt="Upright Solutions" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Ship Security Officer</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/Oceanwide.png" alt="Oceanwide Korea" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Safety Training for Personnel Providing Direct Services to Passengers in Passenger Spaces</p>
+                    </article>
+                    <!-- duplicate for seamless loop -->
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/survey.png" alt="Bureau Veritas" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Passenger Ship Crowd Management Training</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/upright.png" alt="Oceanwide Maritime Services" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Passenger Ship Crisis Management and Human Behaviour Training</p>
+                    </article>
+
+
+                    <!-- MARINA MDS-->
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanskipper" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Crowd & Crisis Management</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Surveys" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Deck Watchkeeping in the Domestic Trade</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Upright Solutions" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Engine Watchkeeping in the Domestic Trade</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Safe Navigation And Collision Regulations</p>
+                    </article>
+                     <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/survey.png" alt="Bureau Veritas" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Ship Handling and Safe Navigation 1</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/upright.png" alt="Oceanwide Maritime Services" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Ship Handling and Safe Navigation 2</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanskipper" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Ship Handling and Safe Navigation 3</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Surveys" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Engine Operation And Maintenance 1</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Upright Solutions" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Engine Operation And Maintenance 2</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Engine Operation And Maintenance 3</p>
+                    </article>
+
+                     <!-- OTS Accreditation -->
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanskipper" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Port Facility Security Officer Course</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Surveys" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Company Security Officer Course</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Upright Solutions" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Security Awareness Training for Port Facility Personnel with Designated Security Duties</p>
+                    </article>
+                    <article class="gallery-card">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption"> Security Awareness Training for Port Facility Personnel without Designated Security Duties</p>
+                    </article>
+                     
+                </div>
+            </div>
+        </div>
+
+        <div class="cert-logo-center">
+            <div class="cert-logo-ring"></div>
+            <img src="images/logo.png" alt="Oceanwide Logo" class="cert-logo-image">
+            <div class="cert-logo-glow"></div>
+        </div>
+    </section>
+
+    <div class="gallery-overlay" id="galleryOverlay" aria-hidden="true">
+        <div class="gallery-overlay-backdrop" id="galleryOverlayBackdrop"></div>
+        <div class="gallery-overlay-panel" role="dialog" aria-modal="true" aria-labelledby="galleryOverlayTitle">
+            <button class="gallery-overlay-close" id="galleryOverlayClose" aria-label="Close gallery preview">×</button>
+            <button class="gallery-overlay-nav gallery-overlay-prev" id="galleryOverlayPrev" aria-label="Previous gallery item">‹</button>
+            <button class="gallery-overlay-nav gallery-overlay-next" id="galleryOverlayNext" aria-label="Next gallery item">›</button>
+            <div class="gallery-overlay-content">
+                <img src="" alt="" class="gallery-overlay-image" id="galleryOverlayImage">
+                <div class="gallery-overlay-copy">
+                    <h2 id="galleryOverlayTitle">Gallery Preview</h2>
+                    <p id="galleryOverlayCaption"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CORE VALUES SECTION -->
+    <section class="core-values" id="foundation">
+        <h2 class="section-title">Our Foundation</h2>
+        
+        <!-- MISSION & VISION -->
+        <div class="mission-vision-cards">
+            <div class="mission-vision-card vision-card">
+                <h3>🎯 Our Vision</h3>
+                <p>"Be the Philippines' premier partner in providing Maritime Training and Services responsive to the statutory and regulatory mandate of a dynamic maritime industry"</p>
+            </div>
+            <div class="mission-vision-card mission-card">
+                <h3>💼 Our Mission</h3>
+                <p>"We are committed to providing excellent maritime services to our stakeholders by conforming to maritime statutory and regulatory requirements and international standards"</p>
+            </div>
+        </div>
+
+        <!-- CORE VALUES -->
+        <h3 class="sub-title">OCEANWIDE LEADS - Core Values</h3>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">💪</div>
+                <h4>Loyalty</h4>
+                <p>Adheres and faithful to commitments and obligations</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚖️</div>
+                <h4>Ethical</h4>
+                <p>Governed by the principles of honesty, integrity, and truth</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">📊</div>
+                <h4>Accountability</h4>
+                <p>Being responsible and answerable to our actions</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h4>Dependability</h4>
+                <p>Trustworthy, credible and reliable partner</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌟</div>
+                <h4>Self-Respect</h4>
+                <p>Works with dignity, pride, confidence and honor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OCEANWIDE LEGACY QUOTE SECTION -->
+    <section class="quote-section" id="quote">
+        <!-- Antigravity Waving Background -->
+        <div class="antigravity-bg">
+            <svg class="wave-bg" viewBox="0 0 1200 400" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:rgba(0,212,255,0.3);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(0,71,171,0.1);stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:rgba(255,193,7,0.2);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(0,168,232,0.1);stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Wave Layer 1 - Cyan/Blue -->
+                <path class="wave wave-1" d="M0,150 Q300,100 600,150 T1200,150 L1200,400 L0,400 Z" fill="url(#waveGrad1)" filter="url(#glow)"/>
+                
+                <!-- Wave Layer 2 - Gold/Blue -->
+                <path class="wave wave-2" d="M0,200 Q300,150 600,200 T1200,200 L1200,400 L0,400 Z" fill="url(#waveGrad2)" filter="url(#glow)"/>
+                
+                <!-- Wave Layer 3 - Accent Wave -->
+                <path class="wave wave-3" d="M0,180 Q300,120 600,180 T1200,180 L1200,400 L0,400 Z" fill="none" stroke="rgba(0,168,232,0.4)" stroke-width="2" stroke-linecap="round"/>
+                
+                <!-- Wave Layer 4 - Deep Wave -->
+                <path class="wave wave-4" d="M0,220 Q300,170 600,220 T1200,220 L1200,400 L0,400 Z" fill="rgba(0,71,171,0.08)"/>
+                
+                <!-- Floating Particles in Waves -->
+                <circle class="float-particle fp-1" cx="150" cy="150" r="4" fill="rgba(255,193,7,0.6)"/>
+                <circle class="float-particle fp-2" cx="450" cy="180" r="3" fill="rgba(0,212,255,0.5)"/>
+                <circle class="float-particle fp-3" cx="750" cy="160" r="5" fill="rgba(0,168,232,0.4)"/>
+                <circle class="float-particle fp-4" cx="950" cy="200" r="4" fill="rgba(255,193,7,0.5)"/>
+                <circle class="float-particle fp-5" cx="300" cy="220" r="3" fill="rgba(0,212,255,0.6)"/>
+                <circle class="float-particle fp-6" cx="1050" cy="140" r="4" fill="rgba(0,71,171,0.5)"/>
+            </svg>
+        </div>
+
+        <div class="quote-container">
+            <div class="quote-mark">"</div>
+            <h2 class="quote-text">"More than a Decade Helping the Philippine Maritime Industry to be Globally Competitive"</h2>
+            <div class="quote-mark closing">"</div>
+            <div class="quote-accent-line"></div>
+        </div>
+    </section>
+
+    <!-- YOUR MARITIME SOLUTIONS PARTNER SECTION -->
+    <section class="maritime-partner" id="partner">
+        <div class="partner-header">
+            <h2>YOUR MARITIME SOLUTIONS PARTNER</h2>
+            <p>Oceanwide Group Companies & Sister Organizations</p>
+        </div>
+
+        <div class="partner-logos">
+            <div class="partner-logo-item">
+                <div class="logo-wrapper">
+                    <img src="images/upright.png"alt="Upright Solutions" class="company-logo">
+                </div>
+                <h3>Upright Solutions and Systems Consultancy Corp.</h3>
+            </div>
+
+            <div class="partner-logo-item">
+                <div class="logo-wrapper">
+                    <img src="images/Oceanskipper.png" alt="Oceanskipper" class="company-logo">
+                </div>
+                <h3>Oceanskipper Marine Supplies & General Services Corp.</h3>
+            </div>
+
+            <div class="partner-logo-item">
+                <div class="logo-wrapper">
+                     <img src="images/Oceanwide.png"alt="Upright Solutions" class="company-logo">
+                </div>
+                <h3>Oceanwide Maritime Services Corp.</h3>
+            </div>
+
+            <div class="partner-logo-item">
+                <div class="logo-wrapper">
+                    <img src="images/survey.png" alt="Oceanwide Surveys" class="company-logo">
+                </div>
+                <h3>Oceanwide Surveys</h3>
+            </div>
+
+            <div class="partner-logo-item">
+                <div class="logo-wrapper">
+                    <img src="images/korea.png" alt="Oceanwide Korea" class="company-logo">
+                </div>
+                <h3>Oceanwide Korea</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-wrapper">
+            <div class="contact-grid">
+                <div>
+                    <div class="office-item" data-lat="10.293753" data-lng="123.903945" data-location="Cebu Office">
+                        <h3>🏢 Cebu Office</h3>
+                        <p>GF Cebu Kang Ha Foundation Bldg.</p>
+                        <p>Osmeña Blvd. cor. Lapu-Lapu St.</p>
+                        <p>Cebu City 6000, Philippines</p>
+                        <p style="margin-top: 1rem; color: var(--accent);">Tel No : 032-254-9180</p>
+                        <p>GLOBE: 0956-513-4330</p>
+                    </div>
+                    <div class="office-item" data-lat="14.4599012" data-lng="120.938052" data-location="Bacoor Training Site" style="margin-top: 1.5rem;">
+                        <h3>📍 Manila Office</h3>
+                        <p>Barangay 149 Gen. Evangelista Street</p>
+                        <p>Campo Santo, Bacoor, 1402 Cavite</p>
+                        <p style="margin-top: 1rem; color: var(--accent);">Tel No : +63 2 7001-2878</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="office-item" data-lat="6.9214" data-lng="122.0790" data-location="Zamboanga Office">
+                        <h3>🌴 Zamboanga Office</h3>
+                        <p>R.T LIM Blvd. Baliwasan</p>
+                        <p>Zamboanga City, Philippines</p>
+                        <p style="margin-top: 1rem; color: var(--accent);">Tel No : (032) 254-9180</p>
+                        <p>GLOBE: 0995-513-4330</p>
+                        <p>SUN: 0933-812-6373</p>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="contact-map" style="height: stretch;">
+                <div id="map">
+                    <iframe
+                        src="https://maps.google.com/maps?ll=10.293753,123.903945&q=10.293753,123.903945&z=18&output=embed"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-glow footer-glow-1"></div>
+        <div class="footer-glow footer-glow-2"></div>
+        <div class="footer-glow footer-glow-3"></div>
+
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="images/oceanwidelogo.png" alt="Oceanwide Logo" class="footer-logo">
+                <div class="footer-brand-copy">
+                    <h3>OCEANWIDE Maritime Services Corp.</h3>
+                    <p>Immersive maritime training, certification, and consultancy designed to meet global standards and local excellence.</p>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Services</a>
+                    <a href="#survey">Survey & Certification</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <a href="mailto:info@oceanwidemaritimes.ph">info@oceanwidemaritimes.ph</a>
+                    <a href="tel:+63270012878">0956-513-4330</a>
+                    <a href="#contact">Contact Section</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <a href="https://ph.linkedin.com/company/oceanwide-maritime">LinkedIn</a>
+                    <a href="https://www.facebook.com/oceanwidemaritime2012">Facebook</a>
+                    <a href="https://www.instagram.com/oceanwidemaritime/">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copy">
+                <p>&copy; 2026 OCEANWIDE Maritime Services Corp. All Rights Reserved.</p>
+                <p class="footer-site">www.oceanwidemaritimes.ph</p>
+            </div>
+            <div class="footer-signature">Powered Design by: <span>Dee Jie C. Mones</span></div>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+        <span>↑</span>
+    </button>
+
+   <script src="script.js"></script>
+</body>
+</html>
