@@ -635,18 +635,52 @@ gsap.registerPlugin(ScrollTrigger);
         const galleryOverlayBackdrop = document.getElementById('galleryOverlayBackdrop');
         const galleryOverlayPrev = document.getElementById('galleryOverlayPrev');
         const galleryOverlayNext = document.getElementById('galleryOverlayNext');
+        const galleryFilterButtons = document.querySelectorAll('.gallery-filter-btn');
+        const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
+        const galleryTrack = document.querySelector('.gallery-track');
 
-        const galleryItems = [];
-        document.querySelectorAll('.gallery-card').forEach(card => {
-            const photo = card.querySelector('.gallery-photo');
-            const caption = card.querySelector('.gallery-caption').textContent.trim();
-            const key = `${photo.src}::${caption}`;
-            if (photo && !galleryItems.some(item => item.key === key)) {
-                galleryItems.push({ key, src: photo.src, alt: photo.alt || caption, caption });
-            }
-        });
-
+        let galleryItems = [];
         let currentGalleryIndex = 0;
+        let activeGalleryFilter = 'all';
+
+        const updateGalleryItems = () => {
+            if (galleryOverlay.classList.contains('is-visible')) {
+                closeGalleryOverlay();
+            }
+
+            const filteredCards = galleryCards.filter(card => {
+                const matches = activeGalleryFilter === 'all' || card.dataset.category === activeGalleryFilter;
+                card.style.display = matches ? '' : 'none';
+                return matches;
+            });
+
+            galleryItems = filteredCards.map(card => {
+                const photo = card.querySelector('.gallery-photo');
+                const caption = card.querySelector('.gallery-caption').textContent.trim();
+                const key = `${photo.src}::${caption}`;
+                return { key, src: photo.src, alt: photo.alt || caption, caption };
+            });
+
+            if (galleryTrack) {
+                galleryTrack.innerHTML = '';
+                const fragment = document.createDocumentFragment();
+                const loopCards = [...filteredCards, ...filteredCards];
+
+                loopCards.forEach((card, index) => {
+                    const clone = card.cloneNode(true);
+                    clone.classList.remove('is-hidden');
+                    clone.style.setProperty('--card-index', index);
+                    fragment.appendChild(clone);
+                });
+
+                galleryTrack.appendChild(fragment);
+                galleryTrack.classList.toggle('is-immersive', activeGalleryFilter !== '');
+                const visibleCount = Math.max(loopCards.length, 4);
+                galleryTrack.style.animationDuration = `${Math.max(20, visibleCount * 3.8)}s`;
+            }
+
+            currentGalleryIndex = 0;
+        };
 
         const showGalleryItem = (index, direction) => {
             currentGalleryIndex = (index + galleryItems.length) % galleryItems.length;
@@ -722,16 +756,32 @@ gsap.registerPlugin(ScrollTrigger);
             document.body.classList.remove('modal-open');
         };
 
-        document.querySelectorAll('.gallery-card').forEach((card, index) => {
-            card.addEventListener('click', () => {
-                const photo = card.querySelector('.gallery-photo');
-                const caption = card.querySelector('.gallery-caption').textContent.trim();
-                if (!photo) return;
-                currentGalleryIndex = galleryItems.findIndex(item => item.src === photo.src && item.caption === caption);
-                if (currentGalleryIndex === -1) currentGalleryIndex = 0;
-                openGalleryOverlay(galleryItems[currentGalleryIndex]);
+        galleryFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                activeGalleryFilter = button.getAttribute('data-filter') || 'all';
+                galleryFilterButtons.forEach(btn => {
+                    const isActive = btn === button;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-pressed', String(isActive));
+                });
+                updateGalleryItems();
             });
         });
+
+        galleryTrack.addEventListener('click', (event) => {
+            const card = event.target.closest('.gallery-card');
+            if (!card) return;
+
+            const photo = card.querySelector('.gallery-photo');
+            const caption = card.querySelector('.gallery-caption').textContent.trim();
+            if (!photo) return;
+
+            currentGalleryIndex = galleryItems.findIndex(item => item.src === photo.src && item.caption === caption);
+            if (currentGalleryIndex === -1) currentGalleryIndex = 0;
+            openGalleryOverlay(galleryItems[currentGalleryIndex]);
+        });
+
+        updateGalleryItems();
 
         const showNextGalleryItem = () => showGalleryItem(currentGalleryIndex + 1, 'left');
         const showPrevGalleryItem = () => showGalleryItem(currentGalleryIndex - 1, 'right');
@@ -1030,6 +1080,53 @@ gsap.registerPlugin(ScrollTrigger);
                 }
             );
         });
+
+        const immersiveLayer1 = document.querySelector('.immersive-layer.layer-1');
+        const immersiveLayer2 = document.querySelector('.immersive-layer.layer-2');
+        const immersiveLayer3 = document.querySelector('.immersive-layer.layer-3');
+
+        if (immersiveLayer1 && immersiveLayer2 && immersiveLayer3) {
+            gsap.to(immersiveLayer1, {
+                y: 120,
+                x: 40,
+                scale: 1.03,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 0.8
+                }
+            });
+
+            gsap.to(immersiveLayer2, {
+                y: 80,
+                x: -55,
+                rotation: 5,
+                scale: 1.02,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1.1
+                }
+            });
+
+            gsap.to(immersiveLayer3, {
+                y: 160,
+                x: 85,
+                rotation: -6,
+                scale: 1.05,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1.4
+                }
+            });
+        }
 
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
