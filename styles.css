@@ -111,7 +111,57 @@
             pointer-events: none;
         }
 
-        .splash-screen::before {
+        .immersive-scroll-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: 0.22;
+            mix-blend-mode: screen;
+        }
+
+        .immersive-layer {
+            position: absolute;
+            width: 220%;
+            height: 220%;
+            top: -10%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(0, 168, 232, 0.18), transparent 20%);
+            filter: blur(28px);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .immersive-layer.layer-2 {
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.14), transparent 18%);
+            top: -20%;
+            left: 15%;
+            filter: blur(32px);
+            opacity: 0.75;
+        }
+
+        .immersive-layer.layer-3 {
+            background: radial-gradient(circle, rgba(108, 54, 255, 0.12), transparent 18%);
+            top: 10%;
+            left: 50%;
+            filter: blur(36px);
+            opacity: 0.7;
+        }
+
+        .immersive-layer::before,
+        .immersive-layer::after {
+            content: '';
+            position: absolute;
+            width: 180%;
+            height: 180%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 65%);
+            opacity: 0.35;
+            top: 10%;
+            left: 10%;
+            transform: translate3d(0,0,0);
+        }
+
             content: '';
             position: absolute;
             inset: 0;
@@ -1899,7 +1949,34 @@
             font-weight: 700;
             color: var(--accent);
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-filter-btn {
+            border: 1px solid rgba(255, 193, 7, 0.27);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-light);
+            padding: 0.7rem 1rem;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .gallery-filter-btn:hover,
+        .gallery-filter-btn.active {
+            background: linear-gradient(135deg, rgba(0, 168, 232, 0.28), rgba(255, 193, 7, 0.24));
+            border-color: rgba(255, 193, 7, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
         }
 
         .gallery-loop {
@@ -1914,6 +1991,28 @@
             width: max-content;
             animation: galleryScroll 38s linear infinite;
             padding-bottom: 1rem;
+            will-change: transform;
+        }
+
+        .gallery-track.is-immersive .gallery-card {
+            animation: galleryCardImmersive 4.8s ease-in-out infinite;
+            animation-delay: calc(var(--card-index, 0) * 0.08s);
+        }
+
+        .gallery-track.is-immersive .gallery-card::after {
+            content: '';
+            position: absolute;
+            inset: -20%;
+            background: linear-gradient(120deg, transparent 20%, rgba(0, 212, 255, 0.18) 45%, transparent 70%);
+            transform: translateX(-140%) rotate(16deg);
+            animation: galleryCardSweep 5.4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gallery-track.is-immersive .gallery-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 38px 95px rgba(0, 0, 0, 0.34);
         }
 
         .gallery-card {
@@ -1970,6 +2069,44 @@
             }
             100% {
                 transform: translateX(-50%);
+            }
+        }
+
+        @keyframes galleryCardImmersive {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.02);
+            }
+        }
+
+        @keyframes galleryCardSweep {
+            0%, 100% {
+                transform: translateX(-140%) rotate(16deg);
+            }
+            50% {
+                transform: translateX(140%) rotate(16deg);
+            }
+        }
+
+        @keyframes logoWrapperFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes logoGlowPulse {
+            0%, 100% {
+                opacity: 0.34;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.08);
             }
         }
 
@@ -2409,15 +2546,46 @@
         .logo-wrapper {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, rgba(0, 71, 171, 0.1), rgba(0, 212, 255, 0.1));
-            border: 2px solid rgba(0, 71, 171, 0.3);
-            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(0, 71, 171, 0.12), rgba(0, 212, 255, 0.12));
+            border: 2px solid rgba(0, 71, 171, 0.25);
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: relative;
-            transition: all 0.3s ease;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            animation: logoWrapperFloat 6s ease-in-out infinite;
+            box-shadow: inset 0 0 0 1px rgba(0, 212, 255, 0.08);
+        }
+
+        .logo-wrapper::before,
+        .logo-wrapper::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .logo-wrapper::before {
+            width: 220px;
+            height: 220px;
+            top: -40px;
+            left: -20px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.35), transparent 62%);
+            filter: blur(28px);
+            animation: logoGlowPulse 7s ease-in-out infinite;
+        }
+
+        .logo-wrapper::after {
+            width: 260px;
+            height: 260px;
+            bottom: -60px;
+            right: -40px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.2), transparent 68%);
+            filter: blur(32px);
+            animation: logoGlowPulse 9s ease-in-out infinite reverse;
         }
 
         /* Ensure partner logos scale to fit their wrapper without being cropped */
@@ -2428,11 +2596,14 @@
             height: auto;
             object-fit: contain;
             display: block;
+            position: relative;
+            z-index: 1;
         }
         .partner-logo-item:hover .logo-wrapper {
-            border-color: var(--accent);
-            box-shadow: 0 15px 40px rgba(0, 71, 171, 0.3);
-            background: linear-gradient(135deg, rgba(0, 71, 171, 0.15), rgba(0, 212, 255, 0.15));
+            border-color: rgba(255, 193, 7, 0.55);
+            box-shadow: 0 24px 60px rgba(0, 71, 171, 0.28);
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(135deg, rgba(0, 71, 171, 0.16), rgba(0, 212, 255, 0.18));
         }
 
         .placeholder-logo {
