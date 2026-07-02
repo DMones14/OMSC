@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="immersive-scroll-layer" aria-hidden="true">
+        <div class="immersive-layer layer-1"></div>
+        <div class="immersive-layer layer-2"></div>
+        <div class="immersive-layer layer-3"></div>
+    </div>
     <!-- SPLASH SCREEN -->
     <div class="splash-screen" id="splashScreen">
         <div class="splash-overlay"></div>
@@ -395,17 +400,17 @@ integrity.
                     <div class="service-detail-content">
                         <h4>Documentation Services</h4>
                         <p>Preparation of:</p>  
-                        <ul>
+                        <ul class="service-list">
                             <li>SMS - (Safety Management System) Manual</li>
                             <li>CSMP - (Cyber Security Management Plan)</li>
-                            <li>(MSMP) - (Mooring System Management Plan)</li>
-                            <li>(CSP) - (Company Security Plan)</li>
-                            <li>(CSM) - (Cargo Securing Manual)</li>
-                            <li>(SSP) - (Ship Security Plan)</li>
-                            <li>(PFSA) - (Port Facility Security Assessment)</li>
-                            <li>(PFSP) - (Port Facility Security Plan)</li>
-                            <li>(SOPEP) - (Shipboard Oil Pollution Emergency Plan)</li>
-                            <li>(OSCP) - (Oil Spill Contingency Plan)</li>
+                            <li>MSMP - (Mooring System Management Plan)</li>
+                            <li>CSP - (Company Security Plan)</li>
+                            <li>CSM - (Cargo Securing Manual)</li>
+                            <li>SSP - (Ship Security Plan)</li>
+                            <li>PFSA - (Port Facility Security Assessment)</li>
+                            <li>PFSP - (Port Facility Security Plan)</li>
+                            <li>SOPEP - (Shipboard Oil Pollution Emergency Plan)</li>
+                            <li>OSCP - (Oil Spill Contingency Plan)</li>
                         </ul>
                     </div>
                 </div>
@@ -496,7 +501,7 @@ integrity.
                 <h2 class="survey-title">Survey & <span>Certification</span></h2>
                 
                 <div class="survey-description">
-                    <p>As a <strong>Recognized Organization of the Administration</strong>, OCEANWIDE is authorized to carry out the following services on behalf of the administration.</p>
+                    <p>As a <strong>Recognized/Registered Security Organization of the Administration</strong>, OCEANWIDE is authorized to carry out the following services on behalf of the administration.</p>
                 </div>
 
                 <!-- Service Items -->
@@ -551,31 +556,31 @@ integrity.
                 </h3>
                 <div class="courses-list">
                     <div class="course-item">
-                        <span class="course-badge">PRO</span>
+                        <span class="course-badge">PRODEV</span>
                         <span class="course-name">MARPOL Surveyor Course</span>
                     </div>
                     <div class="course-item">
-                        <span class="course-badge">PRO</span>
+                        <span class="course-badge">PRODEV</span>
                         <span class="course-name">MARSEC Auditor Course</span>
                     </div>
                     <div class="course-item">
-                        <span class="course-badge">PRO</span>
+                        <span class="course-badge">PRODEV</span>
                         <span class="course-name">Internal Auditor's Course (ISM/ISPS/MLC/ISO)</span>
                     </div>
                     <div class="course-item">
-                        <span class="course-badge">PRO</span>
+                        <span class="course-badge">PRODEV</span>
                         <span class="course-name">DPA Course - Designated Person Ashore</span>
                     </div>
                     <div class="course-item">
-                        <span class="course-badge">PRO</span>
+                        <span class="course-badge">PRODEV</span>
                         <span class="course-name">IMO 6.09 - Ship Energy Efficiency</span>
                     </div>
                     <div class="course-item">
-                        <span class="course-badge">PRO</span>
+                        <span class="course-badge">PRODEV</span>
                         <span class="course-name">IMO 3.12 - Maritime Cyber Risk Management</span>
                     </div>
                     <div class="course-item">
-                        <span class="course-badge">PRO</span>
+                        <span class="course-badge">PRODEV</span>
                         <span class="course-name">IMO 6.10 - Ship Energy Management Planning</span>
                     </div>
                 </div>
@@ -894,52 +899,61 @@ integrity.
 
         <div class="cert-gallery">
             <h3 class="gallery-title">Certification Gallery</h3>
+            <div class="gallery-filters" role="tablist" aria-label="Certification gallery filters">
+                <button class="gallery-filter-btn active" data-filter="all" type="button" aria-pressed="true">All</button>
+                <button class="gallery-filter-btn" data-filter="stcw" type="button" aria-pressed="false">STCW</button>
+                <button class="gallery-filter-btn" data-filter="mds" type="button" aria-pressed="false">MDS</button>
+                <button class="gallery-filter-btn" data-filter="ots" type="button" aria-pressed="false">OTS</button>
+                <button class="gallery-filter-btn" data-filter="accreditation" type="button" aria-pressed="false">Certification Accreditation</button>
+            </div>
             <div class="gallery-loop">
                 <div class="gallery-track">
-                    <article class="gallery-card">
+
+                      <!-- MARINA STCW-->
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Bureau Veritas" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Medical First Aid</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/BV.png" alt="Oceanwide Maritime Services" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Rating Forming Part of a Watch in a Manned Engine-room</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/korea.png" alt="Oceanskipper" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Ratings forming Part of a Navigation Watch</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/Oceanskipper.png" alt="Oceanwide Surveys" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Ship Security Awareness Training and Seafarer w/ Designated Security Duties</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/Oceanwide Group.png" alt="Upright Solutions" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Ship Security Officer</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/Oceanwide.png" alt="Oceanwide Korea" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Safety Training for Personnel Providing Direct Services to Passengers in Passenger Spaces</p>
                     </article>
                     <!-- duplicate for seamless loop -->
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/survey.png" alt="Bureau Veritas" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Passenger Ship Crowd Management Training</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="stcw">
                         <div class="gallery-card-inner">
                             <img src="images/upright.png" alt="Oceanwide Maritime Services" class="gallery-photo">
                         </div>
@@ -948,61 +962,61 @@ integrity.
 
 
                     <!-- MARINA MDS-->
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanskipper" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Crowd & Crisis Management</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanwide Surveys" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Deck Watchkeeping in the Domestic Trade</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Upright Solutions" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Engine Watchkeeping in the Domestic Trade</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Safe Navigation And Collision Regulations</p>
                     </article>
-                     <article class="gallery-card">
+                     <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/survey.png" alt="Bureau Veritas" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Ship Handling and Safe Navigation 1</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/upright.png" alt="Oceanwide Maritime Services" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Ship Handling and Safe Navigation 2</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanskipper" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Ship Handling and Safe Navigation 3</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanwide Surveys" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Engine Operation And Maintenance 1</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Upright Solutions" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Engine Operation And Maintenance 2</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="mds">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
                         </div>
@@ -1010,30 +1024,67 @@ integrity.
                     </article>
 
                      <!-- OTS Accreditation -->
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="ots">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanskipper" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Port Facility Security Officer Course</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="ots">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanwide Surveys" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Company Security Officer Course</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="ots">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Upright Solutions" class="gallery-photo">
                         </div>
                         <p class="gallery-caption">Security Awareness Training for Port Facility Personnel with Designated Security Duties</p>
                     </article>
-                    <article class="gallery-card">
+                    <article class="gallery-card" data-category="ots">
                         <div class="gallery-card-inner">
                             <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
                         </div>
                         <p class="gallery-caption"> Security Awareness Training for Port Facility Personnel without Designated Security Duties</p>
                     </article>
+
+                     <!-- Certification of Accreditation -->
+                    <article class="gallery-card" data-category="accreditation">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanskipper" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">MARPOL Surveyor</p>
+                    </article>
+                    <article class="gallery-card" data-category="accreditation">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Surveys" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Underwater Survey</p>
+                    </article>
+                    <article class="gallery-card" data-category="accreditation">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Upright Solutions" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Recognizr Security Organization : RSO</p>
+                    </article>
+                    <article class="gallery-card" data-category="accreditation">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">ISO Certificate</p>
+                    </article>
+                     <article class="gallery-card" data-category="accreditation">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Intellectual Property</p>
+                    </article>
+                     <article class="gallery-card" data-category="accreditation">
+                        <div class="gallery-card-inner">
+                            <img src="images/logo.png" alt="Oceanwide Korea" class="gallery-photo">
+                        </div>
+                        <p class="gallery-caption">Maritime Training Institution</p>
                      
                 </div>
             </div>
@@ -1233,9 +1284,8 @@ integrity.
                         <h3>🌴 Zamboanga Office</h3>
                         <p>R.T LIM Blvd. Baliwasan</p>
                         <p>Zamboanga City, Philippines</p>
-                        <p style="margin-top: 1rem; color: var(--accent);">Tel No : (032) 254-9180</p>
-                        <p>GLOBE: 0995-513-4330</p>
-                        <p>SUN: 0933-812-6373</p>
+                        <!--<p style="margin-top: 1rem; color: var(--accent);">Tel No : (032) 254-9180</p>-->
+                        
                     </div>  
                 </div>
             </div>
@@ -1260,7 +1310,7 @@ integrity.
             <div class="footer-brand">
                 <img src="images/oceanwidelogo.png" alt="Oceanwide Logo" class="footer-logo">
                 <div class="footer-brand-copy">
-                    <h3>OCEANWIDE Maritime Services Corp.</h3>
+                    <h3>Oceanwide Maritime Services Corp.</h3>
                     <p>Immersive maritime training, certification, and consultancy designed to meet global standards and local excellence.</p>
                 </div>
             </div>
@@ -1289,7 +1339,7 @@ integrity.
 
         <div class="footer-bottom">
             <div class="footer-copy">
-                <p>&copy; 2026 OCEANWIDE Maritime Services Corp. All Rights Reserved.</p>
+                <p>&copy; 2026 Oceawinde Maritime Services Corp. All Rights Reserved.</p>
                 <p class="footer-site">www.oceanwidemaritimes.ph</p>
             </div>
             <div class="footer-signature">Powered Design by: <span>Dee Jie C. Mones</span></div>
